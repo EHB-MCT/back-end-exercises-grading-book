@@ -19,9 +19,9 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/grades', [GradeController::class, 'index'])->name('grades.index')->middleware('auth');
-Route::get('/grades/create', [GradeController::class, 'create'])->name('grades.create')->middleware('auth');
-Route::post('/grades/create', [GradeController::class, 'store'])->middleware('auth');
+Route::get('/grades', [GradeController::class, 'index'])->name('grades.index')->middleware(['auth', 'can:student']);
+Route::get('/grades/create', [GradeController::class, 'create'])->name('grades.create')->middleware(['auth', 'can:admin']);
+Route::post('/grades/create', [GradeController::class, 'store'])->middleware(['auth', 'can:admin']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

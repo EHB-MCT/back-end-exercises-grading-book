@@ -25,4 +25,11 @@ class GradeController extends Controller
 
         return redirect()->back()->with('success', 'Created!');
     }
+
+    public function index()
+    {
+        $users = User::whereNotNull('grade')->get();
+
+        return view('grades.index', compact('users'));
+    }
 }

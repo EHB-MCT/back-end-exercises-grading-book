@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        Header
+        Add grades
     </x-slot>
 
     <div class="py-12">
