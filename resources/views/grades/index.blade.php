@@ -10,7 +10,7 @@
                     <ul>
                     @foreach ($users as $user)
                         <li>
-                            {{ $user->name }} - {{ $user->grade }}
+                            {{ $user->name }} @can('viewGrade', $user)- {{ $user->grade }}@endcan
                         </li>
                     @endforeach
                     </ul>
